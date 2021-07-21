@@ -1,0 +1,17 @@
+.card-title {
+    font-size: 1.5em;
+    fong-weight:bold;
+    text-align: center;
+}
+.card-text {
+    font-size: 2em;
+    fong-weight:bold;
+    text-align: center;
+}
+
+.row-1 {
+    justify-content: space-around;
+}
+.row-2 {
+    justify-content: space-around;
+}
