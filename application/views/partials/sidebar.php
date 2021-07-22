@@ -7,8 +7,8 @@
             <img class="profile-img img-lg rounded-circle" src="<?= base_url('assets/label-free/images/profile/male/image_1.png') ?>" alt="profile image">
           </div>
           <div class="info-wrapper">
-            <p class="user-name">User</p>
-            <h6 class="display-income">PT. Cinta Sejati</h6>
+            <p class="user-name">Admin</p>
+            <h6 class="display-income">@IProtect</h6>
           </div>
         </div>
         <ul class="navigation-menu">

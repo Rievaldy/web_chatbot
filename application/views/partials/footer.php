@@ -37,6 +37,7 @@
     <!-- endbuild -->
     <script src="<?= base_url('assets/jquery-ui-1.12.1/jquery-ui.min.js') ?>"></script>
     <script src="<?= base_url('assets/DataTables/datatables.min.js') ?>"></script>
+    <script src="<?= base_url('assets/js/script.js') ?>"></script>
     <script src="<?= base_url('assets/js/pages/'.$view_name.'.js') ?>"></script>
 
     

@@ -16,6 +16,7 @@
     <link rel="stylesheet" href="<?= base_url('assets/label-free/css/demo_1/style.css') ?>">
     <link rel="stylesheet" href="<?= base_url('assets/jquery-ui-1.12.1/jquery-ui.min.css') ?>">
     <link rel="stylesheet" href="<?= base_url('assets/DataTables/datatables.min.css') ?>">
+    <link rel="stylesheet" href="<?= base_url('assets/css/style.css') ?>">
     <link rel="stylesheet" href="<?= base_url('assets/css/pages/'.$view_name.'.css') ?>">
     <!-- Layout style -->
     <link rel="shortcut icon" href="<?= base_url('assets/label-free/images/favicon.ico') ?>" />
