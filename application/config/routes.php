@@ -54,7 +54,6 @@ $route['dashboard'] = 'dashboard';
 $route['dashboard/request-maintenance'] = 'request_maintenance';
 $route['dashboard/chat'] = 'chat';
 $route['dashboard/question'] = 'question';
-$route['dashboard/answer'] = 'answer';
 $route['dashboard/label'] = 'label';
 
 $route['404_override'] = 'my404';

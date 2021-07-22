@@ -4,9 +4,13 @@ $('.item-purchase-banner').remove()
 $(document).ready( function () {
 
     $('.i-datatable').DataTable({
+        // responsive: true,
         dom: 'Bfrtip',
         buttons: [
             'copy', 'csv', 'excel', 'pdf', 'print'
         ]
     })
+
+    $(".datepicker").datepicker();
+
 } );

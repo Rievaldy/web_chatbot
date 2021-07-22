@@ -43,13 +43,6 @@
               <i class="mdi mdi-clipboard-outline link-icon"></i>
             </a>
           </li>  
-          <li>
-            <a href="<?= site_url('dashboard/answer') ?>">
-              <span class="link-title">Answer</span>
-              <i class="mdi mdi-library-books link-icon"></i>
-            </a>
-          </li>
-
           <li class="nav-category-divider">DOCS</li>
           <li>
             <a href="#">

@@ -7,7 +7,7 @@
         <div class="card">
             <div class="card-body">
                 <p class="card-title">Request Maintenance</p>
-                <p class="card-text">25</p>
+                <p class="card-text"><?= $total->request_maintenance ?></p>
             </div>
         </div>
     </div>
@@ -15,7 +15,7 @@
         <div class="card">
             <div class="card-body">
                 <p class="card-title">Chat</p>
-                <p class="card-text">425</p>
+                <p class="card-text"><?= $total->chat ?></p>
             </div>
         </div>
     </div>
@@ -23,7 +23,7 @@
         <div class="card">
             <div class="card-body">
                 <p class="card-title">Label</p>
-                <p class="card-text">12</p>
+                <p class="card-text"><?= $total->label ?></p>
             </div>
         </div>
     </div>
@@ -37,7 +37,7 @@
         <div class="card">
             <div class="card-body">
                 <p class="card-title">Question</p>
-                <p class="card-text">121</p>
+                <p class="card-text"><?= $total->question ?></p>
             </div>
         </div>
     </div>
@@ -45,7 +45,7 @@
         <div class="card">
             <div class="card-body">
                 <p class="card-title">Answer</p>
-                <p class="card-text">523</p>
+                <p class="card-text"><?= $total->answer ?></p>
             </div>
         </div>
     </div>

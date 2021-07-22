@@ -20,4 +20,19 @@ class MY_Controller extends CI_Controller
     $this->load->view($view, $data);
     $this->load->view('partials/footer', $data);
   }
+
+  public function create_response($ret)
+  {
+    $message['text'] = $ret ? 'Data has been created' : 'Failed to create data';
+    $message['class'] = $ret ? 'alert-primary' : 'alert-danger';
+    return $message;
+  }
+
+  public function destroy_response($ret)
+  {
+    $message['text'] = $ret ? 'Data has been deleted' : 'Failed to delete data';
+    $message['class'] = $ret ? 'alert-primary' : 'alert-danger';
+    return $message;
+  }
+
 }

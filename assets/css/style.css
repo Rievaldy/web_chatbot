@@ -4,3 +4,13 @@
 .purchase-banner-active.header-fixed .t-header {
     top: 0;
 }
+.page-body .page-content-wrapper {
+    margin-top: 0;
+}
+.i-datatable {
+    width: 100%;
+}
+td {
+    word-wrap: break-word;
+    white-space: normal !important;
+}

@@ -23,7 +23,7 @@
 <div class="wrapper p-5 bg-white">
     <p class="h4">Request Maintenances List</p><br>
 
-    <table id="table-request-maintenance">
+    <table class="i-datatable table table-striped">
         <thead>
             <tr>
                 <th>Create Date</th>
