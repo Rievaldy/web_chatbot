@@ -1,0 +1,6 @@
+.item-purchase-banner {
+    display: none;
+}
+.purchase-banner-active.header-fixed .t-header {
+    top: 0;
+}
