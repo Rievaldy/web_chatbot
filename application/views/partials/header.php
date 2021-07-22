@@ -19,6 +19,6 @@
     <link rel="stylesheet" href="<?= base_url('assets/css/style.css') ?>">
     <link rel="stylesheet" href="<?= base_url('assets/css/pages/'.$view_name.'.css') ?>">
     <!-- Layout style -->
-    <link rel="shortcut icon" href="<?= base_url('assets/label-free/images/favicon.ico') ?>" />
+    <link rel="shortcut icon" href="<?= base_url('assets/label-free/images/favicon.png') ?>" />
   </head>
   <body class="header-fixed">
