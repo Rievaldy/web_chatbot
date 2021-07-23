@@ -34,3 +34,6 @@ td {
 .link:hover {
     color: #1e27f9;
 }
+form {
+    display: inline;
+}
