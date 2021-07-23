@@ -37,3 +37,6 @@ td {
 form {
     display: inline;
 }
+.page-content-wrapper {
+    background: #f7f7f7;
+}
