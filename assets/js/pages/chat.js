@@ -25,17 +25,6 @@ $(document).on('click', '.index_chat', function() {
                     <p class="text-right">`+obj['chatbot_response']+`</p>
                 </div>
                 <br>`;
-                html += `
-                <div>
-                    <p class="text-left"><small><strong> `+obj['user_name']+`</strong> `+obj['create_date_time']+`</small></p>
-                    <p class="text-left">`+obj['user_input']+`</p>
-                </div>
-                <br>
-                <div>
-                    <p class="text-right"><small><strong> Chatbot</strong> `+obj['create_date_time']+`</small></p>
-                    <p class="text-right">`+obj['chatbot_response']+`</p>
-                </div>
-                <br>`;
             }
             $('.container-chat-index').html(html)
             html = userName + ' - Chat'
