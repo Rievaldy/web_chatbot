@@ -22,6 +22,8 @@ td {
 .bd-modal-lg .modal-content {
     width: 100%;
     height: 100%;
+    overflow-y: scroll;
+    overflow-x: hidden;
 }
 .link {
     color: #696ffb;
