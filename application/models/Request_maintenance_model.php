@@ -60,6 +60,12 @@ class Request_maintenance_model extends CI_Model {
         return $query->result();
     }
         
+    public function update_status($data)
+    {
+        $sql = "UPDATE maintenance SET status_code = ? WHERE id_subcribe_product = ? AND request_date = ?";
+
+        return $this->db->query($sql, $data);
+    }
 }
 
 ?>

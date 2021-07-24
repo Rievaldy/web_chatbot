@@ -17,7 +17,7 @@ $(document).ready(function(){
             th.push($(ths[i]).text().trim())
         }
         for (i = 0; i < tds.length; i++) {
-            td.push($(tds[i]).text().trim())
+            td.push($(tds[i]).attr('val').trim())
         }
         
         $('.title-maintenance-index').html('Request by '+ td[1])
@@ -32,5 +32,9 @@ $(document).ready(function(){
             `;
         }
         $('.table-maintenance-index').html(html)
+    })
+
+    $('.select-maintenance-status').change(function(){
+        $(this).parents('form').submit()
     })
 })

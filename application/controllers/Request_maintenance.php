@@ -27,4 +27,13 @@ class Request_maintenance extends MY_Controller
 		parent::view('request_maintenance',  $data);
 	}
 
+    public function update_status()
+	{
+		$data = $this->input->post();
+		$ret = $this->Request_maintenance_model->update_status($data);		
+
+		$message = parent::update_response($ret);
+		$this->session->set_flashdata('message', $message);
+		redirect(site_url('dashboard/request-maintenance'));
+	}
 }

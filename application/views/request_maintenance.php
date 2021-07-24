@@ -1,6 +1,12 @@
 <h1>Request Maintenance</h1>
 
 <div class="my-5"></div>
+<?php if($message = $this->session->flashdata('message')): ?>
+    <div class="alert <?= $message['class'] ?>">
+        <p><?= $message['text'] ?></p>
+    </div>
+<?php endif; ?>
+
 
 <div class="wrapper p-5 bg-white">
     <p class="h4">Filter Request Maintenances List</p><br>
@@ -44,16 +50,25 @@
         <tbody>
             <?php foreach($maintenances as $maintenance): ?>
             <tr>
-                <td><?= $maintenance->request_date ?></td>
-                <td><?= $maintenance->name_user ?></td>
-                <td><?= $maintenance->name_product ?></td>
-                <td><?= $maintenance->severity_level ?></td>
-                <td><?= $maintenance->finish_date ?></td>
-                <td><?= $maintenance->status_code ?></td>
-                <td class="d-none desc-maintenance">
+                <td val="<?= $maintenance->request_date ?>"><?= $maintenance->request_date ?></td>
+                <td val="<?= $maintenance->name_user ?>"><?= $maintenance->name_user ?></td>
+                <td val="<?= $maintenance->name_product ?>"><?= $maintenance->name_product ?></td>
+                <td val="<?= $maintenance->severity_level ?>"><?= $maintenance->severity_level ?></td>
+                <td val="<?= $maintenance->finish_date ?>"><?= $maintenance->finish_date ?></td>
+                <td val="<?= $maintenance->status_code ?>">
+                    <form action="<?= site_url('request_maintenance/update_status') ?>" method="post">                
+                        <select class="form-control select-maintenance-status" name="status_code">
+                            <option value="0" <?= $maintenance->status_code == 'UNSOLVED' ? 'selected': '' ?>>UNSOLVED</option>
+                            <option value="1" <?= $maintenance->status_code == 'SOLVED' ? 'selected': '' ?>>SOLVED</option>
+                        </select>
+                        <input type="hidden" name="id_subcribe_product" value="<?= $maintenance->id_subcribe_product ?>">
+                        <input type="hidden" name="request_date" value="<?= $maintenance->request_date ?>">
+                    </form>
+                </td>
+                <td val="<?= $maintenance->desc_maintenance ?>" class="d-none desc-maintenance">
                     <?= $maintenance->desc_maintenance ?>
                 </td>
-                <td><button class="btn btn-primary btn-desc-maintenance" data-toggle="modal" data-target=".bd-modal-lg">View</button></td>
+                <td val=""><button class="btn btn-primary btn-desc-maintenance" data-toggle="modal" data-target=".bd-modal-lg">View</button></td>
             </tr>
             <?php endforeach; ?>
         </tbody>

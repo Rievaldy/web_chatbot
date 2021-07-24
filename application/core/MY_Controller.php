@@ -35,4 +35,11 @@ class MY_Controller extends CI_Controller
     return $message;
   }
 
+  public function update_response($ret)
+  {
+    $message['text'] = $ret ? 'Data has been updated' : 'Failed to update data';
+    $message['class'] = $ret ? 'alert-primary' : 'alert-danger';
+    return $message;
+  }
+
 }

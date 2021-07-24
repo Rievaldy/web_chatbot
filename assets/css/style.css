@@ -40,3 +40,7 @@ form {
 .page-content-wrapper {
     background: #f7f7f7;
 }
+
+.content-viewport {
+    padding-top: 5em;
+}

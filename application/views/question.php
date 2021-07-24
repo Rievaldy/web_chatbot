@@ -1,12 +1,12 @@
 <h1>Question</h1>
 
+<div class="my-5"></div>
 <?php if($message = $this->session->flashdata('message')): ?>
     <div class="alert <?= $message['class'] ?>">
         <p><?= $message['text'] ?></p>
     </div>
 <?php endif; ?>
 
-<div class="my-5"></div>
 <div class="wrapper p-5 bg-white">
     <p class="h4">Add Question</p>
     <form action="<?= site_url('question/create') ?>" method="post">
