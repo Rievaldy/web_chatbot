@@ -19,7 +19,7 @@ $(document).ready(function(){
             success: function(response) {
                 html = ''
                 res = JSON.parse(response)
-                console.log(res);                
+                $('.title-product-index').text('Request by '+res.name_user)    
                 $('#p-request_date').text(res.request_date)
                 $('#p-request_by').text(res.name_user)
                 $('#p-company').text(res.name_company)
@@ -45,10 +45,5 @@ $(document).ready(function(){
             },
         });
         
-        // $('.table-product-index').html(html)
-    })
-
-    $('.select-product-status').change(function(){
-        $(this).parents('form').submit()
     })
 })
