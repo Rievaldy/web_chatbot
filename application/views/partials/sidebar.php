@@ -24,6 +24,12 @@
               <span class="link-title">Request Maintenance</span>
               <i class="mdi mdi-laptop-mac link-icon"></i>
             </a>
+          </li>           
+          <li>
+            <a href="<?= site_url('dashboard/request-product') ?>">
+              <span class="link-title">Request Product</span>
+              <i class="mdi mdi-archive link-icon"></i>
+            </a>
           </li>         
           <li>
             <a href="<?= site_url('dashboard/chat') ?>">

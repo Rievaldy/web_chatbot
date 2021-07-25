@@ -1,0 +1,24 @@
+#Notes:
+Create date = Request date
+kolom id dihilangkan
+register name = user name
+subject = nama product | relasi
+priority = severity level
+update date = finish date
+status = status di maintenance 0 belum dikerjain, 1 udah solve
+
+severity:
+low
+medium
+high
+
+Request date
+Request by
+company
+product
+start date
+end date
+status    
+    0 = request 
+    1 = subscribed
+action = apply -> muncul modal buat isi maintenance tiket, dan end date

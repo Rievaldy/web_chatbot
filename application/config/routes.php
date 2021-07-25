@@ -52,6 +52,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 $route['default_controller'] = 'dashboard';
 $route['dashboard'] = 'dashboard';
 $route['dashboard/request-maintenance'] = 'request_maintenance';
+$route['dashboard/request-product'] = 'request_product';
 $route['dashboard/chat'] = 'chat';
 $route['dashboard/question'] = 'question';
 $route['dashboard/label'] = 'label';
