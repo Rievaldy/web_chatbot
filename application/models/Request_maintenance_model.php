@@ -87,38 +87,6 @@ class Request_maintenance_model extends CI_Model {
         
     public function update_status($data)
     {
-        /*
-        SEND MESSAGE TO TELEGRAM 
-        */
-        $databy = [
-            'id_subcribe_product' => $data['id_subcribe_product'],
-            'request_date' => $data['request_date'],
-        ];
-        $maintenance = $this->index_by($databy);
-        $chat_id = $maintenance->id_user;
-        
-        $config=$this->config->load('config', true);
-		$telegram_token = $this->config->item('telegram_token', 'config');
-        $text = urlencode("Perbaikan produk anda telah diselesaikan\nBerikut rincian :\nNama produk : ".$maintenance->name_product."\nDeskripsi masalah : ".$maintenance->desc_maintenance."\nSkala besar kendala :  ".$maintenance->severity_level." \nTanggal permintaan : ".$maintenance->request_date."\nTanggal selesai perbaikan : ".$maintenance->finish_date);
-        $curl = curl_init();
-
-        curl_setopt_array($curl, array(
-        CURLOPT_URL => "https://api.telegram.org/bot".$telegram_token."/sendMessage?chat_id=".$chat_id."&text=".$text."&parse_mode=markdown",
-        CURLOPT_RETURNTRANSFER => true,
-        CURLOPT_ENCODING => "",
-        CURLOPT_MAXREDIRS => 10,
-        CURLOPT_TIMEOUT => 0,
-        CURLOPT_FOLLOWLOCATION => true,
-        CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-        CURLOPT_CUSTOMREQUEST => "GET",
-        ));
-
-        $response = curl_exec($curl);
-
-        curl_close($curl);
-        /*
-        END SEND MESSAGE TO TELEGRAM 
-        */
         
         $sql = "UPDATE maintenance SET status_code = ?, finish_date =  ?  WHERE id_subcribe_product = ? AND request_date = ?";
         $data['finish_date'] = date('Y-m-d');
@@ -128,7 +96,42 @@ class Request_maintenance_model extends CI_Model {
             'id_subcribe_product' => $data['id_subcribe_product'],
             'request_date' => $data['request_date'],
         ];
-        return $this->db->query($sql, $data);
+        $read =  $this->db->query($sql, $data);
+        if($data['status_code'] == '1'){
+                /*
+            SEND MESSAGE TO TELEGRAM 
+            */
+            $databy = [
+                'id_subcribe_product' => $data['id_subcribe_product'],
+                'request_date' => $data['request_date'],
+            ];
+            $maintenance = $this->index_by($databy);
+            $chat_id = $maintenance->id_user;
+            
+            $config=$this->config->load('config', true);
+            $telegram_token = $this->config->item('telegram_token', 'config');
+            $text = urlencode("Perbaikan produk anda telah diselesaikan\nBerikut rincian :\nNama produk : ".$maintenance->name_product."\nDeskripsi masalah : ".$maintenance->desc_maintenance."\nSkala besar kendala :  ".$maintenance->severity_level." \nTanggal permintaan : ".$maintenance->request_date."\nTanggal selesai perbaikan : ".$maintenance->finish_date);
+            $curl = curl_init();
+
+            curl_setopt_array($curl, array(
+            CURLOPT_URL => "https://api.telegram.org/bot".$telegram_token."/sendMessage?chat_id=".$chat_id."&text=".$text."&parse_mode=markdown",
+            CURLOPT_RETURNTRANSFER => true,
+            CURLOPT_ENCODING => "",
+            CURLOPT_MAXREDIRS => 10,
+            CURLOPT_TIMEOUT => 0,
+            CURLOPT_FOLLOWLOCATION => true,
+            CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+            CURLOPT_CUSTOMREQUEST => "GET",
+            ));
+
+            $response = curl_exec($curl);
+
+            curl_close($curl);
+            /*
+            END SEND MESSAGE TO TELEGRAM 
+            */
+        }
+        return $read;
     }
 }
 

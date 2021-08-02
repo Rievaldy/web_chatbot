@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-$config['telegram_token'] = '1914582379:AAFte_BxwO6Rt1_4gcG_gTlRx-kssHJGWfA';
+$config['telegram_token'] = '1853317583:AAEPSYxZ8bEY8jXvmYdHJjavOCRVVpCXiPU';
 /*
 |--------------------------------------------------------------------------
 | Base Site URL
