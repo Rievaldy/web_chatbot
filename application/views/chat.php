@@ -29,7 +29,7 @@
                 <td><span class="link index_chat" val="<?= $chat->id_user ?>" data-toggle="modal" data-target=".bd-modal-lg"><?= $chat->user_name ?></span></td>
                 <td><?= character_limiter($chat->user_input, 75) ?></td>
                 <td><?= character_limiter($chat->chatbot_response, 75) ?></td>
-                <td><?= character_limiter($chat->chatbot_status, 75) ?></td>
+                <td><?= character_limiter($chat->desc_tag, 75) ?></td>
                 <td><?= character_limiter($chat->status_desc, 75) ?></td>
                 <td><?= $chat->create_date_time ?></td>                
             </tr>
@@ -48,7 +48,7 @@
 
       <hr class="w-100 border border-dark">
 
-      <div class="container container-chat-index">
+      <div class="container container-chat-index position-relative">
         
       </div>
     </div>

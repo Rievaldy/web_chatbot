@@ -14,17 +14,19 @@ $(document).on('click', '.index_chat', function() {
 
             for (const obj of res) {
                 userName = obj['user_name']
-                html += `
-                <div>
-                    <p class="text-left"><small><strong> `+obj['user_name']+`</strong> `+obj['create_date_time']+`</small></p>
-                    <p class="text-left">`+obj['user_input']+`</p>
+                if (obj['user_input'] != null) {
+                    html += `
+                    <div class="float-left w-50">
+                        <p style="font-size: 1.5em;"><small><strong> `+obj['user_name']+`</strong> `+obj['create_date_time']+`</small></p>
+                        <p style="font-size: 1em;background: rgba(198, 198, 198, 0.5);padding: 2em;border-radius: 15px;">`+obj['user_input']+`</p>
+                    </div>
+                    <br style="clear: both">`;
+                }
+                html += `<div class="float-right w-50">
+                    <p class="text-right" style="font-size: 1.5em;"><small><strong> Chatbot</strong> `+obj['create_date_time']+`</small></p>
+                    <p style="font-size: 1em;background: rgba(198, 198, 198, 0.5);padding: 2em;border-radius: 15px;">`+obj['chatbot_response']+`</p>
                 </div>
-                <br>
-                <div>
-                    <p class="text-right"><small><strong> Chatbot</strong> `+obj['create_date_time']+`</small></p>
-                    <p class="text-right">`+obj['chatbot_response']+`</p>
-                </div>
-                <br>`;
+                <br style="clear: both">`;
             }
             $('.container-chat-index').html(html)
             html = userName + ' - Chat'
