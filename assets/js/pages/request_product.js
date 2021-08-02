@@ -8,6 +8,14 @@ $(document).ready(function(){
         }    
     })
 
+    $('input[name="start_date"], input[name="end_date"]').click(function(e) {
+        pos = {
+            top: $(this).offset().top - $(window).scrollTop(),
+            left: $(this).offset().left - $(window).scrollLeft(),
+        }
+        $('#ui-datepicker-div').css({top: pos.top})
+    })
+
     $('.btn-desc-product').click(function() {
         id = $(this).val()
         data = {'id_subcribe_product': id}
@@ -24,13 +32,10 @@ $(document).ready(function(){
                 $('#p-request_by').text(res.name_user)
                 $('#p-company').text(res.name_company)
                 $('#p-product').text(res.name_product)
-                html = `<input type="text" class="datepicker datepicker2" name="start_date" value="`+res.start_date+`">`;
-                $('#p-start_date').html(html)
-                html = `<input type="text" class="datepicker datepicker2" name="end_date" value="`+res.end_date+`">`;
-                $('#p-end_date').html(html)
-                $(".datepicker2").datepicker({
-                    dateFormat: 'yy-mm-dd',
-                });
+                
+                $('input[name="start_date"]').val(res.start_date)
+                $('input[name="end_date"]').val(res.end_date)
+                
                 status = ['', ''];
                 status[Number(res.status_code)] = 'selected';
                 html = `<select class="form-control p-0" name="status_code">
@@ -46,4 +51,5 @@ $(document).ready(function(){
         });
         
     })
+
 })

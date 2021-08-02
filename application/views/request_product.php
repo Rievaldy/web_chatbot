@@ -100,12 +100,12 @@
                 <tr>        
                     <td>Start Date</td>
                     <td> : </td>
-                    <td id="p-start_date"></td>
+                    <td id="p-start_date"><input type="text" class="datepicker datepicker2" name="start_date" value=""></td>
                 </tr>
                 <tr>        
                     <td>End Date</td>
                     <td> : </td>
-                    <td id="p-end_date"></td>
+                    <td id="p-end_date"><input type="text" class="datepicker datepicker2" name="end_date" value=""></td>
                 </tr>
                 <tr>
                     <td>Status</td>
