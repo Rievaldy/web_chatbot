@@ -84,8 +84,38 @@ class Request_product_model extends CI_Model {
 
     public function update($data)
     {
-        $sql = "UPDATE subscribe_product SET `start_date` = ?, end_date = ?, status_code = ?, maintenance_ticket = ? WHERE id_subcribe_product = ?";
+        /*
+        SEND MESSAGE TO TELEGRAM 
+        */
+        $id = $data['id_subcribe_product'];
+        $chat = $this->index_by_id($id);
+        
+        $chat_id = $chat->id_user;
+        $config=$this->config->load('config', true);
+		$telegram_token = $this->config->item('telegram_token', 'config');
+        $text = urlencode("Produk anda telah berjalan, berikut detail keterangannya :\nNama produk : ".$chat->name_product."\nTiket perawatan : ".$chat->maintenance_ticket."\nAwal berjalan : ". $chat->start_date."\nSampai tanggal : ".$chat->end_date);
+        
+        $curl = curl_init();
+        curl_setopt_array($curl, array(
+        CURLOPT_URL => "https://api.telegram.org/bot".$telegram_token."/sendMessage?chat_id=".$chat_id."&text=".$text."&parse_mode=markdown",
+        CURLOPT_RETURNTRANSFER => true,
+        CURLOPT_ENCODING => "",
+        CURLOPT_MAXREDIRS => 10,
+        CURLOPT_TIMEOUT => 0,
+        CURLOPT_FOLLOWLOCATION => true,
+        CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+        CURLOPT_CUSTOMREQUEST => "GET",
+        ));
 
+        $response = curl_exec($curl);
+
+        curl_close($curl);
+        /*
+        END SEND MESSAGE TO TELEGRAM 
+        */
+
+        $sql = "UPDATE subscribe_product SET `start_date` = ?, end_date = ?, status_code = ?, maintenance_ticket = ? WHERE id_subcribe_product = ?";
+        
         return $this->db->query($sql, $data);
     }
 }
